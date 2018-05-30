@@ -52,4 +52,14 @@ public class TransactionRepositoryImpl implements TransactionRepository {
     public void delete(String referenceId) {
         hashOperations.delete(KEY, referenceId);
     }
+
+    @Override
+    public long count() {
+        return hashOperations.keys(KEY).size();
+    }
+
+    @Override
+    public boolean exists(String referenceId) {
+        return hashOperations.hasKey(KEY, referenceId);
+    }
 }
